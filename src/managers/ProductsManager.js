@@ -18,7 +18,7 @@ export default class ProductsManager {
 
         async init()
         {
-            //Creo el archivo de productos.
+           
             await fs.promises.writeFile(PRODUCT_FILE_PATH,JSON.stringify([]));
         }
 
@@ -39,7 +39,7 @@ export default class ProductsManager {
         }
 
         async addProduct(productData) {
-            // Validar que todos los campos requeridos estén presentes
+     
             const { title, description, code, price, stock, category, thumbnails = [] } = productData;
     
             if (!title || !description || !code || !price || stock === undefined || !category) {
@@ -67,11 +67,11 @@ export default class ProductsManager {
         }
     
         generateUniqueId(products) {
-            // Generar un ID único y autoincremental
+            
             let newId = 1;
             const ids = products.map(p => p.id);
     
-            // Buscar el siguiente ID disponible
+            
             while (ids.includes(newId)) {
                 newId++;
             }
@@ -87,30 +87,30 @@ export default class ProductsManager {
                 return null;
             }
     
-            // No se debe actualizar el ID
+           
             const productToUpdate = products[productIndex];
             const updatedProduct = { ...productToUpdate, ...updatedProductData, id: productToUpdate.id };
     
-            // Reemplazar el producto en la lista
+           
             products[productIndex] = updatedProduct;
     
-            // Guardar los cambios en el archivo
+           
             await fs.promises.writeFile(PRODUCT_FILE_PATH, JSON.stringify(products, null, 2));
     
             return updatedProduct;
         }
     
-        // Método para eliminar un producto existente
+     
         async deleteProduct(productId) {
             const products = await this.getProducts();
             const newProductsList = products.filter(p => p.id !== productId);
     
             if (newProductsList.length === products.length) {
-                // Si la longitud no cambia, el producto no fue encontrado
+               
                 return false;
             }
     
-            // Guardar la nueva lista de productos
+          
             await fs.promises.writeFile(PRODUCT_FILE_PATH, JSON.stringify(newProductsList, null, 2));
     
             return true;

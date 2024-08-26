@@ -18,13 +18,13 @@ export default class CartsManager {
 
     async init() 
     {
-        // Creo el archivo de carritos.
+        
         await fs.promises.writeFile(CARTS_FILE_PATH, JSON.stringify([]));
     }
 
     async getCarts() 
     {
-        //Listo los carritos
+        
         const data = await fs.promises.readFile(CARTS_FILE_PATH, 'utf-8');
         const carts = JSON.parse(data);
         return carts;
@@ -32,7 +32,7 @@ export default class CartsManager {
 
     async getCartById(cartId) 
     {
-        //Muestro el carrito por el id
+        
         const carts = await this.getCarts();
         const cart = carts.find(c => c.id === cartId);
         return cart;
@@ -40,7 +40,7 @@ export default class CartsManager {
 
     async addCart() 
     {
-        //agrego el carrito nuevo vacio.
+        
         const carts = await this.getCarts();
         const newId = this.generateUniqueId(carts);
 
@@ -58,7 +58,7 @@ export default class CartsManager {
 
     async addProductToCart(cartId, productId) 
     {
-        //agrego un producto al carrito y sumo en caso que exista el stock.
+        
         const carts = await this.getCarts();
         const cartIndex = carts.findIndex(c => c.id === cartId);
 
@@ -71,7 +71,7 @@ export default class CartsManager {
 
         const productIndex = cart.products.findIndex(p => p.product === productId);
 
-        //Verifico si existe para aumentar el stock
+        
         if (productIndex !== -1) {
             cart.products[productIndex].quantity += 1;
         } else {
