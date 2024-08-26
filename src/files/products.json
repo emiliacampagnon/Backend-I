@@ -1,0 +1,50 @@
+[
+  {
+    "id": 2,
+    "title": "Calza corta Andromeda",
+    "description": "Calza corta sublimada",
+    "code": "EX123",
+    "price": 18999,
+    "status": true,
+    "stock": 5,
+    "category": "Calzas",
+    "thumbnails": [
+     
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Calza corta Libra",
+    "description": "Calza corta sublimada",
+    "code": "EX123",
+    "price": 18999,
+    "status": true,
+    "stock": 6,
+    "category": "Calzas",
+    "thumbnails": [
+      
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Top Andromeda",
+    "description": "Top deportivo sublimado",
+    "code": "P001",
+    "price": 15999,
+    "status": true,
+    "stock": 5,
+    "category": "Tops",
+    "thumbnails": []
+  },
+  {
+    "id": 4,
+    "title": "Top Libra",
+    "description": "Top deportivo sublimado",
+    "code": "P001",
+    "price": 15999,
+    "status": true,
+    "stock": 4,
+    "category": "Tops",
+    "thumbnails": []
+  }
+]
